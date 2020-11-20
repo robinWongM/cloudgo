@@ -11,6 +11,16 @@ A Go web server with a `/hello/:id` route.
 
 ## Testing
 
+测试环境：
+
+```
+GitHub Codespaces Standard Instance (Linux), with 4 cores, 8 GB RAM and 32 GB storage
+
+Debian GNU/Linux 9.13 (stretch)
+
+go version go1.15.3 linux/amd64
+```
+
 ### With `curl`
 
 ```
