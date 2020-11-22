@@ -35,7 +35,7 @@ func main() {
 		params := struct {
 			Username string `form:"username"`
 		}{}
-		// Parse POST body (JSON/XML) and save to `params`
+		// Parse POST body (JSON/XML/x-www-form-urlencode) and save to `params`
 		c.Bind(&params)
 		// Render result.html.tmpl with params
 		c.HTML(200, "result.html.tmpl", params)
