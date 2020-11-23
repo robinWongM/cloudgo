@@ -1,6 +1,8 @@
 package main
 
 import (
+	"crypto/md5"
+	"encoding/hex"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -34,9 +36,13 @@ func main() {
 		// Define a struct to receive form data
 		params := struct {
 			Username string `form:"username"`
+			Password string `form:"password"`
 		}{}
 		// Parse POST body (JSON/XML/x-www-form-urlencode) and save to `params`
 		c.Bind(&params)
+		// Hash user-provided password
+		hashedPwd := md5.Sum([]byte(params.Password))
+		params.Password = hex.EncodeToString(hashedPwd[:])
 		// Render result.html.tmpl with params
 		c.HTML(200, "result.html.tmpl", params)
 	})

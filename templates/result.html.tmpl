@@ -4,8 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Result</title>
+    <link rel="stylesheet" href="/assets/bulma.min.css">
 </head>
 <body>
-    Your username is {{ .Username }}
+    <section class="section">
+        <div class="container">
+            <h1 class="title">POST 结果</h1>
+            <table class="table">
+                <thead>
+                    <th>Key</th>
+                    <th>Value</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Username</td>
+                        <td>{{ .Username }}</td>
+                    </tr>
+                    <tr>
+                        <td>Hashed password</td>
+                        <td>{{ .Password }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+        <h1 class="title">其他操作</h1>
+        <a class="button is-link" href="/">再试一次</a>
+    </section>
 </body>
 </html>

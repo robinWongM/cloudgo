@@ -24,7 +24,7 @@ go version go1.15.3 linux/amd64
 ### With `curl`
 
 ```
-codespace ➜ ~/workspace/cloudgo (main ✗) $ curl http://localhost:8080/ -v
+codespace ➜ ~/workspace/cloudgo/assets (main ✗) $ curl http://localhost:8080/ -v
 *   Trying ::1...
 * TCP_NODELAY set
 * Connected to localhost (::1) port 8080 (#0)
@@ -35,8 +35,8 @@ codespace ➜ ~/workspace/cloudgo (main ✗) $ curl http://localhost:8080/ -v
 > 
 < HTTP/1.1 200 OK
 < Content-Type: text/html; charset=utf-8
-< Date: Sun, 22 Nov 2020 17:20:18 GMT
-< Content-Length: 484
+< Date: Mon, 23 Nov 2020 13:52:52 GMT
+< Content-Length: 1637
 < 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,19 +44,48 @@ codespace ➜ ~/workspace/cloudgo (main ✗) $ curl http://localhost:8080/ -v
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" href="/assets/bulma.min.css">
 </head>
 <body>
-    <p id="current-time"></p>
-    <form action="/" method="post">
-        <input type="text" name="username" placeholder="用户名">
-        <input type="text" name="password" placeholder="密码">
-        <input type="submit">
-    </form>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">当前时间</h1>
+            <p id="current-time"></p>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">一个表单</h1>
+            <form action="/" method="post">
+                <div class="field">
+                    <label class="label">用户名</label>
+                    <div class="has-icons-left">
+                        <input class="input" type="text" name="username">
+                        <span class="icon is-small is-left">
+                        <i class="fas fa-user"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">密码</label>
+                    <div class="has-icons-left">
+                        <input class="input" type="password" name="password">
+                        <span class="icon is-small is-left">
+                        <i class="fas fa-user"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="control">
+                    <button class="button is-link">提交</button>
+                </div>
+            </form>
+        </div>
+    </section>
 
     <script src="/assets/script.js"></script>
 </body>
 * Curl_http_done: called premature == 0
-* Connection #0 to host localhost left intact
+* Connection #0 to host localhost left intac
 ```
 
 ```
@@ -80,7 +109,7 @@ codespace ➜ ~/workspace/cloudgo (main) $ curl http://localhost:8080/now -v
 ```
 
 ```
-curl -d "username=test&password=123" http://localhost:8080/ -v
+codespace ➜ ~/workspace/cloudgo/assets (main ✗) $ curl -d "username=test&password=123" http://localhost:8080/ -v
 *   Trying ::1...
 * TCP_NODELAY set
 * Connected to localhost (::1) port 8080 (#0)
@@ -94,8 +123,8 @@ curl -d "username=test&password=123" http://localhost:8080/ -v
 * upload completely sent off: 26 out of 26 bytes
 < HTTP/1.1 200 OK
 < Content-Type: text/html; charset=utf-8
-< Date: Sun, 22 Nov 2020 17:23:16 GMT
-< Content-Length: 224
+< Date: Mon, 23 Nov 2020 13:52:25 GMT
+< Content-Length: 1093
 < 
 <!DOCTYPE html>
 <html lang="en">
@@ -103,9 +132,35 @@ curl -d "username=test&password=123" http://localhost:8080/ -v
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Result</title>
+    <link rel="stylesheet" href="/assets/bulma.min.css">
 </head>
 <body>
-    Your username is test
+    <section class="section">
+        <div class="container">
+            <h1 class="title">POST 结果</h1>
+            <table class="table">
+                <thead>
+                    <th>Key</th>
+                    <th>Value</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Username</td>
+                        <td>test</td>
+                    </tr>
+                    <tr>
+                        <td>Hashed password</td>
+                        <td>202cb962ac59075b964b07152d234b70</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+        <h1 class="title">其他操作</h1>
+        <a class="button is-link" href="/">再试一次</a>
+    </section>
 </body>
 * Curl_http_done: called premature == 0
 * Connection #0 to host localhost left intact

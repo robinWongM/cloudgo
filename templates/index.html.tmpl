@@ -4,14 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" href="/assets/bulma.min.css">
 </head>
 <body>
-    <p id="current-time"></p>
-    <form action="/" method="post">
-        <input type="text" name="username" placeholder="用户名">
-        <input type="text" name="password" placeholder="密码">
-        <input type="submit">
-    </form>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">当前时间</h1>
+            <p id="current-time"></p>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">一个表单</h1>
+            <form action="/" method="post">
+                <div class="field">
+                    <label class="label">用户名</label>
+                    <div class="has-icons-left">
+                        <input class="input" type="text" name="username">
+                        <span class="icon is-small is-left">
+                        <i class="fas fa-user"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">密码</label>
+                    <div class="has-icons-left">
+                        <input class="input" type="password" name="password">
+                        <span class="icon is-small is-left">
+                        <i class="fas fa-user"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="control">
+                    <button class="button is-link">提交</button>
+                </div>
+            </form>
+        </div>
+    </section>
 
     <script src="/assets/script.js"></script>
 </body>
